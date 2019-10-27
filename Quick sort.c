@@ -1,14 +1,4 @@
 #include<stdio.h>
-void quicksort(int A[],int L, int U)
-{
-    int q,i;
-  if(L<U)
-  {
-      q=part(A,L,U);
-      quicksort(A,L,q-1);
-      quicksort(A,q+1,U);
-  }
-}
 int part(int A[],int L, int U)
 {
     int x,j,i,temp1;
@@ -28,6 +18,16 @@ int part(int A[],int L, int U)
     A[U]=A[i+1];
     A[i+1]=temp1;
     return(i+1);
+}
+void quicksort(int A[],int L, int U)
+{
+    int q,i;
+  if(L<U)
+  {
+      q=part(A,L,U);
+      quicksort(A,L,q-1);
+      quicksort(A,q+1,U);
+  }
 }
 void main()
 {
