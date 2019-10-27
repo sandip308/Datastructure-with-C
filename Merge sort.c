@@ -1,16 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-void merge_sort(int A[],int L,int U)
-{
-    int q;
-    if(L<U)
-    {
-      q=((L+U)/2);
-      merge_sort(A,L,q);
-      merge_sort(A,q+1,U);
-      merge(A,L,q,U);
-    }
-}
 void merge(int A[],int L,int q,int U)
 {
     int n1,n2,i,j,k;
@@ -28,8 +17,8 @@ void merge(int A[],int L,int q,int U)
         D[j]=A[q+j];
     }
     
-    C[i]=987562;
-    D[j]=965472;
+    C[i]=__INT_MAX__;
+    D[j]=__INT_MAX__;
     i=1;
     j=1;
     
@@ -47,7 +36,17 @@ void merge(int A[],int L,int q,int U)
         }
     }
 }
-
+void merge_sort(int A[],int L,int U)
+{
+    int q;
+    if(L<U)
+    {
+      q=((L+U)/2);
+      merge_sort(A,L,q);
+      merge_sort(A,q+1,U);
+      merge(A,L,q,U);
+    }
+}
 void main()
 {
     int n,arr[20],i;
